@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord.雅阁", "Accord.雅
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accord视频拍摄", "Accord视频拍摄\Accord视频拍摄.csproj", "{ED38471A-3EF2-4050-9E24-43ED2E88DDC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "测试继承窗体是否需要添加引用", "测试继承窗体是否需要添加引用\测试继承窗体是否需要添加引用.csproj", "{E7E4DD02-233C-4469-A528-776358D08844}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "基础控件", "基础控件\基础控件.csproj", "{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,22 @@ Global
 		{ED38471A-3EF2-4050-9E24-43ED2E88DDC2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED38471A-3EF2-4050-9E24-43ED2E88DDC2}.Release|x86.ActiveCfg = Release|Any CPU
 		{ED38471A-3EF2-4050-9E24-43ED2E88DDC2}.Release|x86.Build.0 = Release|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Debug|x86.Build.0 = Debug|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Release|x86.ActiveCfg = Release|Any CPU
+		{E7E4DD02-233C-4469-A528-776358D08844}.Release|x86.Build.0 = Release|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Debug|x86.Build.0 = Debug|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Release|x86.ActiveCfg = Release|Any CPU
+		{29F61AF9-E7F2-43E4-8EF7-E08F8786B2D5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
