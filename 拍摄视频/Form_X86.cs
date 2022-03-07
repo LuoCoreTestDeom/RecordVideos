@@ -115,7 +115,7 @@ namespace 拍摄视频
 
         private void VideoSource_NewFrame1(object sender, Accord.Video.NewFrameEventArgs eventArgs)
         {
-            Bitmap bitmap = eventArgs.Frame;
+            Bitmap bitmap =new Bitmap(eventArgs.Frame);
 
             if (bitmap == null) { return; }
             try
@@ -134,10 +134,13 @@ namespace 拍摄视频
                             if (pictureBox1.Image != null)
                             {
                                 pictureBox1.Image.Dispose();
+
                             }
-                            pictureBox1.Image = Image.FromHbitmap(bitmap.GetHbitmap());
-                            
-                            GC.Collect();
+                          var  ddd22== Image.FromHbitmap(bitmap.GetHbitmap()); 
+                            //pictureBox1.Image = bitmap;
+                            //pictureBox1.Image = Image.FromHbitmap(bitmap.GetHbitmap());
+
+
                         }
                         catch (Exception)
                         {
@@ -148,7 +151,7 @@ namespace 拍摄视频
                     }
                 }
                 bitmap.Dispose();
-                
+                GC.Collect();
             }
             catch (Exception ex)
             {
