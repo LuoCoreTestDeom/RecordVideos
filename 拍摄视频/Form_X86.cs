@@ -18,6 +18,7 @@ using AForge.Video.FFMPEG;
 using AForge.Video;
 using Accord.Video;
 using System.Reflection.Emit;
+using Accord.Math;
 
 namespace 拍摄视频
 {
@@ -60,7 +61,7 @@ namespace 拍摄视频
             if (BtnStart.Enabled)
             {
                 videoSource.VideoResolution = videoSource.VideoCapabilities[comboBoxSupportedModes.SelectedIndex];
-                //videoSourcePlayer1.VideoSource =(AForge.Video.IVideoSource) videoSource.SourceObject;
+                //videoSourcePlayer1.VideoSource =(AForge.Video.IVideoSource) videoSource;
                 //videoSourcePlayer1.Start();
 
                 videoSource.Start();
@@ -98,7 +99,7 @@ namespace 拍摄视频
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void 开始录像_Click(object sender, EventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(textBox1.Text))
@@ -108,8 +109,13 @@ namespace 拍摄视频
             //var vcd = ((VideoCaptureDevice)videoSourcePlayer1.VideoSource);
             //System.Drawing.Size videoSize = vcd.VideoResolution.FrameSize;
             //VideoCaptureDevice cameraImage = (VideoCaptureDevice)videoSourcePlayer1.VideoSource;
-            //writer = new Accord.Video.FFMPEG.VideoFileWriter();
-            //writer.Open(textBox1.Text, 100, 200, 30, Accord.Video.FFMPEG.VideoCodec.H264);
+
+            System.Drawing.Size videoSize = videoSource.VideoResolution.FrameSize;
+            Accord.Video.DirectShow.VideoCaptureDevice cameraImage = (Accord.Video.DirectShow.VideoCaptureDevice)videoSource;
+            writer = new Accord.Video.FFMPEG.VideoFileWriter();
+          
+          var vr=  cameraImage.VideoResolution;
+            writer.Open(textBox1.Text, vr.FrameSize.Width, vr.FrameSize.Height, vr.AverageFrameRate);
 
         }
 
@@ -117,38 +123,24 @@ namespace 拍摄视频
         {
             Bitmap bitmap =new Bitmap(eventArgs.Frame);
 
-            if (bitmap == null) { return; }
+            if (bitmap == null|| pictureBox1.Image== bitmap) 
+            { 
+                return; 
+            }
             try
             {
-
+                if (bitmap != null)
                 {
-                    if (bitmap != null)
+                    if (writer != null && writer.IsOpen)
                     {
-                        if (writer != null && writer.IsOpen)
-                        {
-                            writer.WriteVideoFrame(bitmap);
-                        }
-                        try
-                        {
-                            
-                            if (pictureBox1.Image != null)
-                            {
-                                pictureBox1.Image.Dispose();
-
-                            }
-                          var  ddd22== Image.FromHbitmap(bitmap.GetHbitmap()); 
-                            //pictureBox1.Image = bitmap;
-                            //pictureBox1.Image = Image.FromHbitmap(bitmap.GetHbitmap());
-
-
-                        }
-                        catch (Exception)
-                        {
-
-
-                        }
-
+                        writer.WriteVideoFrame(new Bitmap(bitmap));
                     }
+
+                    if (pictureBox1.Image != null)
+                    {
+                        pictureBox1.Image.Dispose();
+                    }
+                    pictureBox1.Image = new Bitmap(bitmap);
                 }
                 bitmap.Dispose();
                 GC.Collect();
@@ -159,7 +151,6 @@ namespace 拍摄视频
                 {
                     label4.Text = ex.Message;
                 }));
-
             }
 
         }

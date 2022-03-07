@@ -63,7 +63,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "开始录像";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.开始录像_Click);
             // 
             // textBox1
             // 
