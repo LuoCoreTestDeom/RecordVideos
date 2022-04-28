@@ -67,7 +67,9 @@ namespace Accord_OpenCV
 
         private void 开启摄像头_Click(object sender, EventArgs e)
         {
-            if (CB_Camera.SelectedIndex < 1 || CB_CameraResolution.SelectedIndex < 1)
+           
+
+            if (CB_Camera.SelectedIndex < 0|| CB_CameraResolution.SelectedIndex < 0)
             {
                 MessageBox.Show("没有选择摄像头");
                 return;
